@@ -1,0 +1,47 @@
+
+Quantum Euler Project Problem 2
+
+This project is inspired by Project Euler Problem 2.
++The original classical problem says:
+Starting with `1` and `2`, each new Fibonacci term is created by adding the previous two terms. By considering the Fibonacci numbers whose values do not exceed four million, find the sum of the even-valued terms.
+In this folder, that idea is adapted into a quantum-computing setting using Qiskit.
+Instead of solving the original problem by adding the even Fibonacci numbers together, this version builds a quantum oracle that marks even Fibonacci numbers encoded in a quantum register.
+## What the Oracle Does
+An oracle in quantum computing is a circuit that recognizes certain states and marks them.
+Here, the oracle is designed to recognize numbers that satisfy both of these conditions:
+- the number is a Fibonacci number
+- the number is even
+
+If a number in the register matches those conditions, the oracle marks that state with a phase flip.
+## What the Python File Does
+The file [even_fibonacci_oracle_qiskit.py] does the following:
+- generates the even Fibonacci numbers that fit inside the chosen register size
+- builds a Qiskit oracle circuit that marks those values
+- prints the values that are marked
+- draws the circuit as text output
+## Example with 6 Qubits
+A 6-qubit register can represent values from `0` to `63`.
+
+The even Fibonacci numbers in that range are:
+
+- `2`
+- `8`
+- `34`
+
+So when the file is run with `6` data qubits, the oracle marks:
+
+[2, 8, 34]
+
+## Why This Is Different from the Original Euler Problem
+
+The original Euler problem asks for a classical sum.
+
+This project does not compute that sum with the oracle. Instead, it translates the Fibonacci-evenness idea into a quantum search style problem, where the goal is to identify and mark the valid numbers inside a quantum register.
+So this is best described as:
+- inspired by Project Euler Problem 2
+- reinterpreted as a Qiskit oracle design problem
+## Running the Code
+Use a Python environment with Qiskit installed, then run:
+powershell
+python "Euler Project\even_fibonacci_oracle_qiskit.py"
+
